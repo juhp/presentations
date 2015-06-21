@@ -82,15 +82,21 @@ Haskell actually defines `String` to be [Char]!
 
 
 # Static type safety
-- python backtraces
+- python backtraces (screenshot!)
 
 # Newtype and data types
 
 # Functional Purity
+- quarantees no side-effects
 
 # Hello World
 ```
+$ cat > hello.hs
 main = putStrLn "hello"
+$ ghc hello.hs
+$ ./hello
+hello
+$ 
 ```
 
 # Monads and IO
@@ -115,11 +121,11 @@ main = putStrLn "hello"
 - yi
 
 # Web frameworks
-- yesod http://www.yesodweb.com/
+- Yesod http://www.yesodweb.com/
 - Warp can "provide performance on a par with nginx" - http://www.aosabook.org/en/posa/warp.html
-- snap
-- happstack
-- scotty
+- Snap
+- Happstack
+- Scotty
 
 # Fedora Haskell
 - https://fedoraproject.org/wiki/Haskell_SIG
