@@ -91,10 +91,10 @@ Haskell actually defines `String` to be [Char]!
 
 # Hello World
 ```
-$ cat > hello.hs
+$ cat > test.hs
 main = putStrLn "hello"
-$ ghc hello.hs
-$ ./hello
+$ ghc test.hs
+$ ./test
 hello
 $ 
 ```
