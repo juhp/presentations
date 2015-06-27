@@ -6,9 +6,11 @@
 # Learning Haskell makes you a better programmer
 
 <div class="notes">
-This talk won't teach you how to program in Haskell
+Not possibly to teach how to program in Haskell in 40min
 
-but gives a taste of Haskell
+but try anyway for a subset
+
+give a taste of Haskell
 </div>
 
 ## Slides
@@ -36,12 +38,13 @@ programming language.
 
 - functions are first-class
 - evaluation of expressions rather than\
-  executing instructions
+  executing instructions\
+  (functional vs imperative)
 
 ## Pure
 
 - variables and data structures are immutable
-- expressions never have “side effects”
+- expressions do not have “side effects”
 - calling the same function with same args gives same result every time: *deterministic*
 
 ⇓
@@ -71,6 +74,8 @@ in the late 80's
 
 to create a standard lazy\
 functional programming language
+
+![](https://wiki.haskell.org/wikiupload/4/4a/HaskellLogoStyPreview-1.png "Haskell Logo")
 
 # Haskell uses indentation heavily like Python
 
@@ -123,9 +128,13 @@ source repository of open source Haskell packages
 
 User package manager for Hackage packages
 
+<div align="left">
+eg to install pandoc
+</div>
 ```
-$ cabal install yesod
+$ cabal install pandoc
 ```
+resolves and builds dependencies
 
 # Haskell Basics
 
@@ -285,6 +294,10 @@ primes = filterPrime [2..]
           p : filterPrime [x | x <- xs, x `mod` p /= 0]
 ```
 
+<div align="right">
+<small>(from <http://haskell.org>)</small>
+</div>
+
 # Tuples
 
 ## Tuples
@@ -310,9 +323,12 @@ take  n     (x:xs)      =  x : take (n-1) xs
 ## Case statement
 
 ```haskell
+data Arch = X86 | X86_64 | ARMv7
+
 case arch of
    X86 -> "/usr/lib"
    X86_64 -> "/usr/lib64"
+   otherwise -> "/usr/lib"
 ```
 
 # Types
@@ -410,10 +426,14 @@ main = do                  --
 
 ## pandoc
 
-- Markup transformers
-- <http://pandoc.org/>
+markup conversion tool
 
-These slides are created with pandoc: <http://github.com/juhp/presentations>
+<http://pandoc.org/>
+
+eg markdown to html, etc
+
+
+These slides created with pandoc: <http://github.com/juhp/presentations>
 
 ## xmonad
 
@@ -465,6 +485,11 @@ Extensible customizable editor (like Emacs)
 ["provide performance on a par with nginx"](http://www.aosabook.org/en/posa/warp.html)\
 and "three times faster than Node".
 
+<div class="notes">
+Thanks to the concurrency of GHC's IO manager,
+scales linearly to 32 cores/threads.
+</div>
+
 # Fedora Haskell
 
 ## Fedora Haskell SIG
@@ -482,7 +507,7 @@ and "three times faster than Node".
 
 ## Resources
 - <http://haskell.org>
-- <http://wiki.haskell.org>
+- <https://wiki.haskell.org/Tutorials>
 - [School of Haskell](https://www.fpcomplete.com/school)
 - [Haskell Communities and Activities Report](https://wiki.haskell.org/Haskell_Communities_and_Activities_Report)
 - StackOverflow
@@ -495,6 +520,10 @@ and "three times faster than Node".
 
 ## Questions?
 
+![](https://wiki.haskell.org/wikiupload/4/4a/HaskellLogoStyPreview-1.png "Haskell Logo")
+
 - <http://haskell.org>
 - <http://wiki.haskell.org>
 - <https://www.fpcomplete.com/school>
+
+Contact: petersen@fedoraproject.org (juhp)
