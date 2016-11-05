@@ -5,9 +5,10 @@
 
 ## Functional Programming Lab with Jens Petersen @juhp
 
-Please install _`hugs98`_ or _`ghc`_ in your Linux distro.
+If you want to follow in your computer\
+please install _`hugs98`_ or _`ghc`_.
 
-Or download from:
+from your Linux distro or download from:
 
 - <https://www.haskell.org/hugs/> (small, old)
 
@@ -15,10 +16,9 @@ Or download from:
 
 Alternatively: <http://tryhaskell.org/> (online limited cli)
 
-
 # Learning functional programming makes you a better programmer!
 
-# Learning Haskell makes you an better functional programmer!! ;-)
+## Learning Haskell makes you an better functional programmer!! ;-)
 
 <div class="notes">
 Not possibly to teach FP in 1 hour
@@ -26,18 +26,23 @@ Not possibly to teach FP in 1 hour
 but want to give a taste
 </div>
 
+# Requisites
 ## Requisites
 
-Today we will use hugs98 or ghc for some parts.
+Today we will use Haskell:
 
-## Install hugs
+need hugs98 or ghc.
+
+## Install Haskell
+ghc is current but large
+
 Hugs is old but small!
 
-    sudo apt install hugs
+    sudo apt install [ghc|hugs]
 
 or
 
-    sudo dnf install hugs98
+    sudo dnf install [ghc|hugs98]
 
 Installers for Windows and Mac
 
@@ -45,9 +50,11 @@ Installers for Windows and Mac
 
 if you can't install hugs or ghc:
 
-http://tryhaskell.org/
+<http://tryhaskell.org/>
 
-- <https://www.schoolofhaskell.com/> (hs)
+<http://www.seas.upenn.edu/~cis194/spring13/lectures.html>
+
+<https://www.schoolofhaskell.com/>
 
 ## Slides
 
@@ -55,15 +62,29 @@ http://tryhaskell.org/
 
 generated with pandoc and reveal.js
 
-from <http://github.com/juhp/presentations/>
+from <https://github.com/juhp/presentations/tree/master/fudcon2016-apac/>
 
 # Why Functional Programming?
 
-- Pure functions compose
+## Why Functional Programming?
+
+- Pure function composition
 - Referential transparency
 - Immutable predictability
 
-# Haskell?
+First functional programming language was probably Algol
+
+- scalabilty and maintainability
+
+## Functions
+
+Mathematical maps:
+
+    f: A -> B
+
+Lambda calculus
+
+# Why Haskell?
 
 ## Haskell is a
 
@@ -73,6 +94,8 @@ from <http://github.com/juhp/presentations/>
 - *Statically typed*
 
 programming language.
+
+Typed lambda calculus!
 
 ## Functional
 
@@ -115,7 +138,7 @@ in the late 80's
 to create a standard lazy\
 functional programming language
 
-![](https://wiki.haskell.org/wikiupload/4/4a/HaskellLogoStyPreview-1.png "Haskell Logo")
+![](HaskellLogoStyPreview-1.png "Haskell Logo")
 
 # Haskell uses indentation heavily like Python
 
@@ -126,8 +149,10 @@ functional programming language
   - like Python's pip
 - Hackage
   - source repository of open source Haskell packages
-- cabal-install
+- `cabal-install`
   - package manager for Hackage packages
+- Stackage.org
+  - `stack`
 
 # Haskell Basics
 
@@ -220,6 +245,20 @@ length [1, 2, 3] ⟹ 3
 length $ show $ 2^2^2^2^2 -1 ⟹ 19729
 ```
 
+## Unsafe functions
+
+`head` and `tail` are not safe functions
+
+```
+head []
+
+tail []
+```
+
+`undefined`!
+
+Avoid them!!
+
 ## Cons constructor
 ```
 a : as
@@ -235,6 +274,37 @@ map :: (a -> b) -> [a] -> [b]
 map (add 3) [1, 2, 3] ⟹ [4, 5, 6]
 ```
 
+# Exercise 1
+
+## Quicksort
+
+What is the type signature of the `quicksort` function?
+
+## Quicksort: type
+
+```
+quicksort :: [a] -> [a]
+```
+
+## Quicksort: definition
+
+```
+quicksort :: Ord a => [a] -> [a]
+quicksort [] = []
+quicksort (p:xs) = (quicksort lesser) ++ [p] ++ (quicksort greater)
+    where
+        lesser = filter (< p) xs
+        greater = filter (>= p) xs
+```
+
+(not for production use)
+
+## Quicksort: typecheck
+
+```
+:t quicksort
+```
+
 # Laziness
 
 ## Laziness
@@ -244,7 +314,7 @@ Lazy evaluation allows infinite lists:
 naturals = [0..]
 ```
 
-Fibonacci series
+## Fibonacci series
 
 ```haskell
 fib :: Int -> Int
@@ -252,6 +322,20 @@ fib :: Int -> Int
 fib 0 = 0
 fib 1 = 1
 fib n = fib (n-1) + fib (n-2)
+```
+
+## Fibonacci: better
+
+```
+fibs = 0 : 1 : next fibs
+  where
+    next (a : t@(b:_)) = (a+b) : next t
+```
+
+## Fibonacci recursive
+
+```
+fibv= 1 : 1 : [ a+b | (a,b) <- zip fib (tail fib) ]
 ```
 
 # Let and with
@@ -316,12 +400,10 @@ take  n     (x:xs)      =  x : take (n-1) xs
 ## Case statement
 
 ```haskell
-data Arch = X86 | X86_64 | ARMv7
-
-case arch of
-   X86 -> "/usr/lib"
-   X86_64 -> "/usr/lib64"
-   otherwise -> "/usr/lib"
+case n of
+   0 -> "no"
+   1 -> "one"
+   otherwise -> "some"
 ```
 
 # Types
@@ -368,6 +450,39 @@ name <- getLine
 putStrLn $ greet ++ " Your name is " ++ name
 ```
 
+# Modules
+
+## Modules
+import modules with:
+
+```
+import My.Module.Name
+```
+
+## Exercise
+
+Implement simple `ls` command in Haskell using:
+
+
+```
+import System.Directory
+```
+
+# Examples
+
+## Combinators
+
+Html combinators
+
+Parsers
+
+## XHTML library
+
+```
+import Text.XHtml
+
+hello :: String
+hello = showHtml $ p (stringHtml "hi!")
 
 # Projects
 
@@ -411,12 +526,12 @@ and "three times faster than Node".
 
 - <http://haskell.org>
 - <http://haskell-lang.org>
+- <http://www.seas.upenn.edu/~cis194/spring13/lectures.html>
 - <http://haskellbook.com>
 - <https://www.schoolofhaskell.com/>
 
 - Other langs
   - https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming (py)
   - http://underscorejs.org/ (js)
-
 
 Contact: petersen@fedoraproject.org (@juhp)

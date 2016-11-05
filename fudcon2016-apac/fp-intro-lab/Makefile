@@ -7,7 +7,7 @@ default: revealjs
 
 
 revealjs:
-	$(PANDOC) -s -t revealjs -V theme=simple -V transition=slide --slide-level=2 --smart -o $(PRESENTATION).html $(PRESENTATION).md
+	$(PANDOC) -s -t revealjs -V theme=simple -V transition=slide -V history=true --slide-level=2 --smart -o $(PRESENTATION).html $(PRESENTATION).md
 
 dzslides:
 	$(PANDOC) -s -t dzslides --slide-level=2 -o $(PRESENTATION).html $(PRESENTATION).md
