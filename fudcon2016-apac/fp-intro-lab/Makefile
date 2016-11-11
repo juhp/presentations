@@ -1,6 +1,5 @@
 PRESENTATION = fudconpp-fp-intro
 
-#PANDOC = $(HOME)/copr/pandoc/pandoc-1.16.0.2/.cabal-sandbox/bin/pandoc
 PANDOC = pandoc
 
 default: revealjs
