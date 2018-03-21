@@ -1,9 +1,10 @@
 :root {
   --radial-size: 35%;
+  --vert-displacement: 0px;
+  --side-displacement: 0px;
 }
 
 body {
-  color: white;
   background:
       radial-gradient(ellipse at bottom left, rgba(0,0,255,1), rgba(0,0,255,0) var(--radial-size)),
       radial-gradient(ellipse at top left, rgba(255,0,0,1), rgba(255,0,0,0) var(--radial-size)),
@@ -12,29 +13,29 @@ body {
 }
 
 .topleft {
-    position: absolute;
-    top: 16px;
-    left: 16px;
+    position: fixed;
+    top: var(--vert-displacement);
+    left: var(--side-displacement);
     font-size: 64px;
 }
 
 .topright {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+    position: fixed;
+    top: var(--vert-displacement);
+    right: var(--side-displacement);
     font-size: 64px;
 }
 
 .bottomleft {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
+    position: fixed;
+    bottom: var(--vert-displacement);
+    left: var(--side-displacement);
     font-size: 64px;
 }
 
 .bottomright {
-    position: absolute;
-    bottom: 16px;
-    right: 16px;
+    position: fixed;
+    bottom: var(--vert-displacement);
+    right: var(--side-displacement);
     font-size: 64px;
 }
