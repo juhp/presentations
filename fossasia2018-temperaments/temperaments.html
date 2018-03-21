@@ -2,13 +2,20 @@
 <html>
 <head>
 <style>
-body #quad {
-  width: 100%;
+:root {
+  --radial-size: 35%;
+}
+
+body {
+  width: 100vw;
   height: 100vh;
-  background:  linear-gradient(45deg, rgba(0,0,255,.7), rgba(0,0,255,0) 70.71%),
-      linear-gradient(135deg, rgba(255,0,0,.9), rgba(255,0,0,0) 70.71%),
-      linear-gradient(225deg, rgba(255,255,0,.8), rgba(255,255,0,0) 70.71%),
-      linear-gradient(315deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%);
+  margin: 0;
+  color: black;
+  background:
+      radial-gradient(ellipse at bottom left, rgba(0,0,255,1), rgba(0,0,255,0) var(--radial-size)),
+      radial-gradient(ellipse at top left, rgba(255,0,0,1), rgba(255,0,0,0) var(--radial-size)),
+      radial-gradient(ellipse at top right, rgba(255,255,0,1), rgba(255,255,0,0) var(--radial-size)),
+      radial-gradient(ellipse at bottom right, rgba(0,255,0,1), rgba(0,255,0,0) var(--radial-size));
 }
 
 .topleft {
@@ -23,7 +30,6 @@ body #quad {
     top: 16px;
     right: 16px;
     font-size: 64px;
-    color: black;
 }
 
 .bottomleft {
@@ -31,7 +37,6 @@ body #quad {
     bottom: 16px;
     left: 16px;
     font-size: 64px;
-    color: black;
 }
 
 .bottomright {
@@ -39,12 +44,10 @@ body #quad {
     bottom: 16px;
     right: 16px;
     font-size: 64px;
-    color: black;
 }
 </style>
 </head>
 <body>
-  <div id="quad"></div>
   <div class="topleft">Choleric</div>
   <div class="topright">Sanguine</div>
   <div class="bottomleft">Melancholic</div>
