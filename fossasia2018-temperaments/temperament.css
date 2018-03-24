@@ -1,5 +1,5 @@
 :root {
-  --radial-size: 35%;
+  --radial-size: 36%;
   --vert-displacement: 0px;
   --side-displacement: 0px;
 }
@@ -16,26 +16,47 @@ body {
     position: fixed;
     top: var(--vert-displacement);
     left: var(--side-displacement);
-    font-size: 64px;
 }
 
 .topright {
     position: fixed;
     top: var(--vert-displacement);
     right: var(--side-displacement);
-    font-size: 64px;
 }
 
 .bottomleft {
     position: fixed;
     bottom: var(--vert-displacement);
     left: var(--side-displacement);
-    font-size: 64px;
 }
 
 .bottomright {
     position: fixed;
     bottom: var(--vert-displacement);
     right: var(--side-displacement);
-    font-size: 64px;
+}
+
+.top {
+    position: fixed;
+    top: var(--vert-displacement);
+    left: 50%
+}
+
+.bottom {
+    position: fixed;
+    bottom: var(--vert-displacement);
+    left: 50%
+}
+
+.left {
+    position: fixed;
+    left: var(--side-displacement);
+    bottom: 50%;
+    vertical-align: middle;
+}
+
+.right {
+    position: fixed;
+    right: var(--side-displacement);
+    bottom: 50%
 }
