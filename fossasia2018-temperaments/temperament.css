@@ -1,15 +1,15 @@
 :root {
-  --radial-size: 36%;
+  --radial-size: 37%;
   --vert-displacement: 0px;
   --side-displacement: 0px;
 }
 
 body {
   background:
-      radial-gradient(ellipse at bottom left, rgba(0,0,255,1), rgba(0,0,255,0) var(--radial-size)),
-      radial-gradient(ellipse at top left, rgba(255,0,0,1), rgba(255,0,0,0) var(--radial-size)),
-      radial-gradient(ellipse at top right, rgba(255,255,0,1), rgba(255,255,0,0) var(--radial-size)),
-      radial-gradient(ellipse at bottom right, rgba(0,255,0,1), rgba(0,255,0,0) var(--radial-size));
+      radial-gradient(ellipse at bottom left, rgba(0,0,255,1), rgba(0,0,255,0.5) 20%, rgba(0,0,255,0.1) var(--radial-size)),
+      radial-gradient(ellipse at top left, rgba(255,0,0,1), rgba(255,0,0,0.5) 20%, rgba(255,0,0,0.1) var(--radial-size)),
+      radial-gradient(ellipse at top right, rgba(255,255,0,1), rgba(255,255,0,0.5) 20%, rgba(255,255,0,0.1) var(--radial-size)),
+      radial-gradient(ellipse at bottom right, rgba(0,255,0,1), rgba(0,255,0,0.5) 20%, rgba(0,255,0,0.1) var(--radial-size));
 }
 
 .topleft {
@@ -39,24 +39,24 @@ body {
 .top {
     position: fixed;
     top: var(--vert-displacement);
-    left: 50%
+    left: 40%
 }
 
 .bottom {
     position: fixed;
     bottom: var(--vert-displacement);
-    left: 50%
+    left: 40%
 }
 
 .left {
     position: fixed;
     left: var(--side-displacement);
-    bottom: 50%;
+    bottom: 45%;
     vertical-align: middle;
 }
 
 .right {
     position: fixed;
     right: var(--side-displacement);
-    bottom: 50%
+    bottom: 45%
 }
