@@ -1,5 +1,5 @@
 :root {
-  --radial-size: 37%;
+  --radial-size: 33%;
   --vert-displacement: 0px;
   --side-displacement: 0px;
 }
@@ -39,24 +39,23 @@ body {
 .top {
     position: fixed;
     top: var(--vert-displacement);
-    left: 40%
+    left: 41%
 }
 
 .bottom {
     position: fixed;
     bottom: var(--vert-displacement);
-    left: 40%
+    left: 41%
 }
 
 .left {
     position: fixed;
     left: var(--side-displacement);
-    bottom: 45%;
-    vertical-align: middle;
+    bottom: 40%;
 }
 
 .right {
     position: fixed;
     right: var(--side-displacement);
-    bottom: 45%
+    bottom: 40%
 }
