@@ -8,8 +8,8 @@ html: reveal.js
 	$(PANDOC) -s $(OPTS) -o $(PRESENTATION).html $(PRESENTATION).md
 
 upload:
-	$(PANDOC) -s $(OPTS) --self-contained -o $(PRESENTATION).html $(PRESENTATION).md
-	scp $(PRESENTATION).html $(PRESENTATION).md fedorapeople.org:talks/devconf.us-2018-fedora-haskell/
+	$(PANDOC) -s $(OPTS) --self-contained -o $(PRESENTATION)-web.html $(PRESENTATION).md
+	scp $(PRESENTATION)-web.html $(PRESENTATION).md fedorapeople.org:talks/devconf.us-2018-fedora-haskell/
 
 REVEAL = 3.7.0
 
