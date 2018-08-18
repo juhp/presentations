@@ -1,0 +1,1 @@
+devconf.us-2018-fedora-haskell.md
