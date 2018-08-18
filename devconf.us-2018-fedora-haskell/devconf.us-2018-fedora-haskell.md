@@ -58,9 +58,10 @@ Consulting: Well Typed, FP Complete, ...
 
 main Haskell upstream package source repository
 
-## Hackage packages
+## Haskell packages
 
-- use `Cabal` packaging
+- `Cabal` packaging system
+
 - `cabal-install` package tool
 
 ## Cabal packages
@@ -103,11 +104,8 @@ currently ~480 Haskell sources packages in Fedora
 
 GHC has strict version binary dependencies:
 
-- updating ghc or libraries requires a lot of rebuilding
+updating ghc or libraries requires a lot of rebuilding
 
-- <http://fedoraproject.org/wiki/Changes/GHC_8.2>
-
-Lack of packaging manpower led to some deps subpackaging
 
 ## Fedora Haskell Packagers
 
@@ -120,7 +118,7 @@ Many people have contributed including:
 - Packagers:
  Ben\ Boeckel, Ricky\ Elrod, Zach\ Oglesby
 
-<p style="font-size:1em">
+<p style="font-size:0.9em">
 Former:
  Bryan\ O'Sullivan, Yaakov\ Nemoy, Conrad\ Meyer, Lakshmi\ Narasimhan, Shakthi\ Kannan, Michel\ Salim, et al
 </p>
@@ -145,8 +143,8 @@ OpenSuse has also used cabal-rpm
 ## fedora-haskell-tools
 
 - fhpkg: clones, diff's, pulls, commits packages
-- fhbuild: builds locally, in mock, "chain" builds in Koji
-- fhbz: refreshes or closes Update bugs with deps or builds
+- fhbuild: builds locally, in mock, Koji "chain" builds
+- fhbz: closes Update bugs with builds or refreshes missing deps
 
 ## Demo of<br/>fedora-haskell-tools
 
@@ -162,11 +160,10 @@ New tool that orders packages by build dependencies
 
 ## Improvements to tools
 
-- improve reliability (updating and koji building)
-- async parallel building (also koji chain-build)
-- docker for local building
+- async parallel building
+- containers for local building
 - performance: caching of built package info
-- editors for .cabal and .spec files
+- editor for .spec files
 - push the Haskell types
 
 - querying for Fedora (Haskell) packages\
@@ -183,11 +180,7 @@ To keep Fedora in sync with Stackage LTS
 
 Copr: build a subset of Stackage?
 
-Koschei
-
-Fedora CI
-
-## Fedora Haskell Contributions
+Koschei and Fedora CI
 
 # Questions?
 
@@ -199,8 +192,7 @@ Twitter: @juhp
 
 ## More information
 
-- Freenode #fedora-haskell
 - Fedora Haskell SIG: <https://fedoraproject.org/wiki/Haskell_SIG>
 - <https://github.com/juhp/cabal-rpm>
 - <https://github.com/fedora-haskell/fedora-haskell-tools>
-- <https://pagure.io/haskell-sig/blob/master/f/scripts>
+- <https://github.com/juhp/rpmbuild-order>
