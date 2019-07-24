@@ -1,0 +1,21 @@
+.reveal h1 {
+    font-size: 2.5em; }
+
+.reveal h2 {
+    font-size: 1.95em; }
+
+.reveal section img {
+    border: 0;
+    box-shadow: none; }
+
+.reveal {
+    font-family: sans-serif; }
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    font-family: "Comfortaa", "Overpass", sans-serif; }
+
