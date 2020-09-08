@@ -1,0 +1,12 @@
+.reveal h1 {
+    font-size: 2.5em; }
+
+.reveal h2 {
+    font-size: 2.0em; }
+
+.reveal section img {
+    border: 0;
+    box-shadow: none; }
+
+.reveal {
+    font-family: sans-serif; }
