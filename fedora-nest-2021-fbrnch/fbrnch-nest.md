@@ -55,6 +55,10 @@ $ fbrnch --help
 - 485 commits
 - 14 github issues closed
 - 13 releases
+- *edit* new Haskell libraries released:
+  - http-query
+  - bugzilla-redhat
+  - koji
 - https://hackage.haskell.org/package/fbrnch since Feb 2021
 - In Fedora package since 20 Feb 2021
 - https://fedoraproject.org/wiki/Changes/fbrnch F34 Change
