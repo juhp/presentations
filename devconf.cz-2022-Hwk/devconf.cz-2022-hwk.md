@@ -67,7 +67,7 @@ $ seq 3 | hwk id
 3
 ```
 
-# Example 1
+# Example 1: echo $(cat)
 
 ```haskell
 unwords :: [String] -> String
@@ -141,17 +141,17 @@ $ seq 3 | hwk -l 'replace "2" "6"'
 3
 ```
 
-# More interesting
+# More interesting: numbers
 
 `hwk -w "filter ((\i -> i<5 && i>0) . length)`
 
 lines with 1-4 words
 
 
-Todo:
 ```shellsession
-seq 5 | hwk -l '(mod 2)'
-
+$ seq 5 | hwk 'filter ((== 0) . (`mod` 2) . int)'
+2
+4
 ```
 
 # Example 7: sed /word/d
@@ -165,3 +165,35 @@ $ seq 3 | hwk 'filter (not . isInfixOf "2")'
 # Example 8: wc -c
 
 `hwk -a length`
+
+# Example 9: version sort
+
+```haskell
+sortOn :: Ord b => (a -> b) -> [a] -> [a]
+```
+
+```shellsession
+$ echo -e "1.10\n1.9" | hwk 'sortOn readVersion'
+1.9
+1.10
+```
+
+# Example 10: reverse
+
+```haskell
+reverse :: [a] -> [a]
+```
+
+```shellsession
+$ seq 3 | hwk reverse
+3
+2
+1
+```
+
+```shellsession
+$ seq 10 12 | hwk -l reverse
+01
+11
+21
+```
