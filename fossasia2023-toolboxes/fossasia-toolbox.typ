@@ -3,7 +3,8 @@
 
 #show: slides.with(
     authors: [Jens Petersen `@juhp`\
-              `petersen@redhat.com`
+              `petersen@redhat.com`\
+              Red Hat Asia-Pacific
               ],
     short-authors: "Jens Petersen @juhp",
     title: "Living in toolbox containers",
@@ -23,23 +24,17 @@
     ][
     - running in Podman or Docker
     ][
-    - with access to home dir, desktop and system resources of your host system
+    with access to home dir, desktop and system resources of your host system
     ]
 ]
 
 #slide(title: "Container Toolboxes")[
     4 fundamental questions:
 
-    #one-by-one[
-    ][
     - Why?
-    ][
     - How?
-    ][
     - What?
-    ][
     - Who?
-    ]
 ]
 
 #new-section("Why Toolboxes")
@@ -49,11 +44,11 @@
 ]
 
 #slide(title: "Why use Toolboxes?")[
-    - use a different OS version or system
+    - system package isolation
+    - "immutable" ostree-based OS
 
-    - system package isolation: eg "immutable" ostree-based OS
-
-    - using different versions of apps, tools, toolchains, etc
+    - use a newer/older OS version or different Linux distro
+      - use different versions of apps, tools, toolchains, etc
 
     - lightweight and resource saving/sharing
 ]
@@ -62,6 +57,7 @@
 
 #slide(theme-variant: "wake up")[
     = How Toolboxes
+    #align(center)[#image("Podman.png", width: 50%)]
 ]
 
 #slide(title: "How do Toolboxes work?")[
@@ -74,12 +70,14 @@
     (This topic would make an interesting deep dive.)
 ]
 
+#new-section("What Toolboxes")
+
 #slide(theme-variant: "wake up")[
     = What Toolboxes
 ]
 
 #slide(title: "Toolbox projects")[
-    currently 2 major projects supporting graphical desktops:
+    currently 2 major projects supporting graphical desktop users:
 
     - Toolbx
 
@@ -97,15 +95,16 @@
     #one-by-one[
     - started in Red Hat by Debarshi Ray (rishi) in 2018
     ][
-    - originally shell scripts
+    - originally shell script and uses Podman
     ][
     - rewritten in Golang by Ondřej Míchal (HarryMichal) in 2020
     ][
     - Available as:
       - `toolbox` in Fedora, RHEL, Arch
       - `podman-toolbox` in Debian & Ubuntu
-    - https://containertoolbx.org/
-    - https://repology.org/project/toolbox-development-environment/versions]
+    - #link("https://containertoolbx.org/")
+    (#link("https://repology.org/project/toolbox-development-environment/versions")[repology.org])
+    ]
 ]
 
 #slide(title: "Toolbx images")[
@@ -113,7 +112,7 @@
     - `registry.fedoraproject.org/fedora-toolbox:{36,37,38,39}`
     - `registry.access.redhat.com/ubi{8,9}/toolbox`
 
-#link("https://github.com/toolbx-images/images") (since 2022)
+Others in #link("https://github.com/toolbx-images/images") (created in 2022)
 
     - #link("https://quay.io/organization/toolbx-images")
     - has images for:\
@@ -133,10 +132,19 @@
 #slide(title: "Distrobox")[
     #link("https://github.com/89luca89/distrobox/")
 
-    - created by Luca Di Maio in 2021
+    community project created by Luca Di Maio in 2021
     - collection of shell script commands: `distrobox-*`
+    - supports Podman and Docker
     - #link("https://github.com/89luca89/distrobox/blob/main/docs/compatibility.md")
-    - #link("https://repology.org/project/distrobox/versions")
+    (#link("https://repology.org/project/distrobox/versions")[repology.org])
+]
+
+#slide(title: "Distrobox demo")[
+
+    - `create --home`
+    - `--dry-run`
+    - `export --app` to add .desktop file to host desktop
+    - `ephemeral`
 ]
 
 #new-section("Who Toolboxes")
