@@ -163,11 +163,10 @@ Others in #link("https://github.com/toolbx-images/images") (created in 2022)
 ]
 
 #slide(title: "Thanks!")[
-    #one-by-one[
     Toolbox projects:
         + Toolbx: https://github.com/containers/toolbox
         + Distrobox: https://github.com/89luca89/distrobox/
-    ][
+
     Contact me: Jens Petersen
         - `@juhp` (github, twitter, mstdn.social)
         - `petersen@redhat.com`
