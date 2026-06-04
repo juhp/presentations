@@ -1,0 +1,20 @@
+.reveal h1 {
+    font-size: 80px; }
+
+.reveal h2 {
+    font-size: 1.7em; }
+
+.reveal section img {
+    border: 0;
+    box-shadow: none; }
+
+.reveal {
+    font-family: sans-serif; }
+
+.reveal a {
+  color: #076294
+}
+
+.reveal a:hover {
+  color: #0762c4
+}

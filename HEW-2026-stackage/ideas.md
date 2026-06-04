@@ -1,0 +1,11 @@
+- what is stackage?
+- stackage team
+- how to use?
+- how to contribute?
+- who uses stackage?
+- dependencies
+- ghc tracking
+- stackage tooling
+- properties/invariants
+- official projects should target stackage
+-

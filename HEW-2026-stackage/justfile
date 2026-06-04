@@ -1,0 +1,17 @@
+PANDOC := "pandoc"
+
+NAME := "hew-2026-stackage"
+
+# REVEAL
+MODE := "-s -t revealjs -V theme=night -V transition=slide -V history=true --slide-level=2 --css local.css"
+#MODE := "-s -t slidy --slide-level=2"
+
+html:
+	{{PANDOC}} {{MODE}} -i -o {{NAME}}.html {{NAME}}.md
+
+single:
+	{{PANDOC}} -s -o {{NAME}}-single.html {{NAME}}.md
+
+upload: single
+	{{PANDOC}} {{MODE}} --embed-resources -o {{NAME}}.html {{NAME}}.md
+	scp {{NAME}}*.md {{NAME}}*.html local.css fedorapeople.org:talks/
