@@ -1,0 +1,21 @@
+PANDOC := "pandoc"
+
+NAME := "flock-2026-fbrnch-ws"
+
+MODE := "-s -t slidy --slide-level=1 --css modern-slidy.css"
+
+html:
+	{{PANDOC}} {{MODE}} -o {{NAME}}.html {{NAME}}.md
+
+embed:
+	{{PANDOC}} --embed-resources {{MODE}} -o {{NAME}}-embed.html {{NAME}}.md
+
+
+single:
+	{{PANDOC}} -s -o {{NAME}}-single.html {{NAME}}.md
+
+upload: html single
+	scp {{NAME}}.md {{NAME}}.html {{NAME}}-single.html modern-slidy.css fedorapeople.org:talks/
+
+upload-embed: embed
+	scp {{NAME}}-embed.html fedorapeople.org:talks/

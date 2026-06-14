@@ -1,0 +1,105 @@
+/* Import a modern font
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+*/
+body {
+    font-family: 'Adwaita Sans', sans-serif !important;
+    color: #cbd5e1 !important; /* Soft, readable light gray */
+    background-color: #0f172a !important; /* Deep slate background */
+}
+
+pre, code {
+    font-family: 'Adwaita Mono', monospace !important;
+    font-weight: normal !important;
+    color: #f0e0d0 !important;
+}
+
+div.slide {
+    border-top: none !important; /* Kill that dated top border line */
+    padding: 3em !important;
+}
+
+h1, h2, h3 {
+    font-family: 'Adwaita Sans', sans-serif !important;
+    color: #ffffff !important; /* Crisp white for headers */
+    font-weight: 600 !important;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2.8em !important;
+    margin-bottom: 0.5em !important;
+}
+
+/* Vibrant blue for links to pop against the dark background */
+a {
+    color: #38bdf8 !important;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Sleek code blocks for dark mode */
+pre {
+    background: #1e293b !important; /* Slightly lighter slate for contrast */
+    border: 1px solid #334155 !important;
+    border-radius: 8px !important;
+    padding: 1em !important;
+}
+
+/* Clean up the bottom toolbar so it blends in */
+div.toolbar {
+    background: #0f172a !important;
+    border-top: 1px solid #1e293b !important;
+    font-family: 'Adwaita Sans', sans-serif !important;
+}
+
+/* Style the toolbar text and navigation buttons */
+div.toolbar table, div.toolbar td, div.toolbar a {
+    color: #4c4c4c !important;
+}
+
+div.toolbar a:hover {
+    color: #6c6c6c !important;
+}
+
+a {
+  color: #8faed9 !important
+}
+
+a:hover {
+  color: #6f8eb9 !important
+}
+
+/* Target the red page count/number in the toolbar */
+div.toolbar div[style*="float: right"] span {
+    color: #aad0ee !important; /* Soft slate gray */
+    font-weight: 500 !important;
+}
+
+div.initial_prompt {
+  opacity: 0.15 !important;
+  background-color: transparent !important;
+}
+
+.slide h1, .slide h2, .slide h3, .slide h4, .slide h5, .slide h6 {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+/* Force Slidy lists to align with normal text margins */
+.slide ul, .slide ol {
+    margin-left: 2em !important;
+    padding-left: 0 !important;
+}
+
+.slide li {
+    padding-left: 0 !important; /* Pulls text closer to the bullet */
+    margin-left: 0 !important;
+}
+
+/* Optional: Give nested sub-bullets a nice proportional indent too */
+.slide li ul, .slide li ol {
+    margin-left: 1.5em !important;
+}
