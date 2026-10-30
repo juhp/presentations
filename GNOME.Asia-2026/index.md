@@ -5,7 +5,7 @@
 % GNOME Asia 2026\
   Terengganu, Malaysia
 
-# Talk Structure
+## Talk Structure
 
 - Background: the Problem
 - The need for isolation: different approaches
@@ -21,7 +21,7 @@ encapsule (containers), workcell (bubblewrap), conclusions.
 Both tools are mine, both are best-effort: "better than nothing".
 :::
 
-# 1a. The problem
+## §0 The problem
 
 ---
 
@@ -60,7 +60,7 @@ Finally I decided to write `encapsule` and\
 then `workcell` which I am presenting today.
 
 
-# 1b. The modern installer culture
+## §1 The modern installer culture
 
 ```sh
 curl -fsSL https://example.com/install.sh | sh
@@ -213,7 +213,7 @@ Explicit opt-in: nothing from the host is visible unless you grant it.
 Not claiming a hardened security boundary.
 :::
 
-# 2. Encapsule
+## §2 Encapsule
 
 ---
 
@@ -459,7 +459,7 @@ From the README disclaimer: simple, best-effort isolation, no warranty.
 Both tools are for reducing blast radius, not for running real malware.
 :::
 
-# 3. Workcell
+## §3 Workcell
 
 ---
 
@@ -669,7 +669,7 @@ explicit mounts and compat options can weaken isolation. Syscall filtering,
 named capabilities and resource limits are not done yet.
 :::
 
-# 4. Conclusions
+## §4 Conclusions
 
 ---
 
