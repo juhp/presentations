@@ -25,6 +25,34 @@ Both tools are mine, both are best-effort: "better than nothing".
 
 ---
 
+It is difficult for Linux distros to package the latest FOSS tools\
+from the community fast enough for users.
+
+<small>
+
+- cool tools written in Rust, Zig, etc
+- AI tools
+
+</small>
+
+and of course not all tools from companies are open source...
+
+## The problem
+
+We are often expected to run\
+`curl | sh` \
+to install/update upstream projects,\
+but I rather avoid that\
+with full access to my home directory.
+
+::: notes
+i.e. we are executing potentially arbitrary shell script.
+*Pause here*.
+Everything on your computer that you can read, this code can read.
+:::
+
+---
+
 ## Background story
 
 For a long time I felt uncomfortable running\
@@ -35,18 +63,6 @@ or binary bundles.
 ::: notes
 Sometimes I run "curl | sh" myself, and so do you probably
 :::
-## The problem
-
-We are expected to run\
-`curl | sh` \
-but I prefer not to do that with\
-access to my home directory.
-
-::: notes
-i.e. we are executing potentially arbitrary shell script.
-*Pause here*.
-Everything on your computer that you can read, this code can read.
-:::
 
 ---
 
@@ -56,8 +72,18 @@ my own home directory & environment safe and clean.
 
 ---
 
+I wanted some way to isolate these tools\
+and protect my own files, etc.
+
+---
+
+Initially I used VMs for isolation,\
+but copying files gets tedious.
+
+---
+
 Finally I decided to write `encapsule` and\
-then `workcell` which I am presenting today.
+now `workcell` which I am presenting today.
 
 
 ## §1 The modern installer culture
@@ -70,9 +96,7 @@ curl -fsSL https://example.com/install.sh | sh
 
 ## Shell installers are so common
 
-Here are a few well-known examples:
-
----
+<small>A few well-known examples:</small>
 
 Coding agents
 
@@ -112,7 +136,8 @@ its integrity depends on the server, every time.
 ---
 
 Note that installing software with\
-package managers also *runs* code.
+ecosystem package managers (pip, cargo, etc)\
+may also *run* code.
 
 <small>
 (and if your install script also git clones arbitrary code\
@@ -130,8 +155,8 @@ Not only curl | sh.
 ---
 
 ::: big
-Now add _coding agents_ into the mix that potentially\
-may run arbitrary commands **for you** !
+Now add _coding agents_ into the mix that\
+potentially may run arbitrary commands **for you** !
 :::
 
 ::: notes
@@ -147,9 +172,9 @@ Where to draw the line of trust?
 ---
 
 ::: big
-What attackers are after:
+What attackers are after?
 
-access to your **`$HOME`** !
+Typically access to your **`$HOME`** files!
 :::
 
 ::: notes
@@ -164,12 +189,13 @@ Filesystem (home) isolation is the key feature.
 - Pin versions and verify checksums\
   (good, but not always possible)
 - "Only use trusted sources" (preferred approach)
-- Hope and :pray:!
+- Build/package from source (but users are lazy)
+- Hope and :pray:!?
 
 . . .
 
 These focus on trying to **find** any problem,\
-not limiting actual **damage** that could happen.
+but do not limit actual **damage** that could happen.
 
 ---
 
@@ -204,7 +230,7 @@ for convenience.
 ---
 
 ::: big
-Goal: Basic isolation - *"better than nothing"*,\
+Goal: Basic isolation - *"better than none"*,\
 easy enough that you actually use it.
 :::
 
@@ -221,6 +247,18 @@ Not claiming a hardened security boundary.
 Containers,
 but **without** your home.
 :::
+
+---
+
+Mini Recap: running Containers (in half a slide;)
+
+```sh
+$ podman run --interactive --tty --rm fedora:latest
+```
+
+runs the container _image_ as a (temp) container.
+
+Containers can be started, stopped like VMs can.
 
 ## First: what is toolbox?
 
@@ -247,21 +285,13 @@ home directory, so inside it the malicious script sees everything.
 ---
 
 ::: big
-Toolbox shares your home
-**by design.**
+`Toolbox` shares your home and more
+**by design**
 :::
 
 ---
 
-Recap: what is a container? (in half a slide)
-
-```sh
-$ podman run --interactive --tty --rm fedora:latest
-```
-
-runs the container _image_ as a (temp) container
-
-Containers can be started, stopped like VMs can.
+`Encapsule` is like toolbox but without implicit sharing
 
 ## Encapsule
 
@@ -464,8 +494,8 @@ Both tools are for reducing blast radius, not for running real malware.
 ---
 
 ::: big
-What if we don't copy the system,
-but **borrow** it?
+What if we don't copy the system files (sysroot),\
+but **borrow**?
 :::
 
 ## Workcell _(working title)_
