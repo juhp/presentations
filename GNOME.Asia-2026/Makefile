@@ -6,7 +6,6 @@ REVEAL_COMMON = -s -t revealjs -V history=true -V slideNumber=true -V width=1280
 
 REVEAL = $(REVEAL_COMMON) -V theme=black
 
-# use the local reveal.js (works offline); 6.x keeps plugins under dist/plugin/
 reveal: reveal.js
 	$(PANDOC) $(REVEAL) -o talk.html index.md
 

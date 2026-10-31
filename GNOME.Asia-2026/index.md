@@ -168,8 +168,8 @@ Filesystem (home) isolation is the key feature.
 
 . . .
 
-They focus on trying to **find** any problem,\
-but do not limit any actual **damage** if it happens.
+These focus on trying to **find** any problem,\
+not limiting actual **damage** that could happen.
 
 ---
 
@@ -579,9 +579,13 @@ $ ls                            # after exit: new.txt is gone
 README  evil.sh
 ```
 
+<small>
+
 - `:rw` normal (default)
 - `:ro` read-only: let a tool look but not touch
 - `:O` **overlay**: run `make` or an agent, then **discard** all changes
+
+</small>
 
 ::: notes
 :O is nice for letting an unknown tool run and then throwing the writes away.
@@ -681,11 +685,13 @@ Share **explicitly**.
 
 ## Take-aways
 
-- `curl | sh`, packages, and agents all run **as you**
+- `curl | sh`, packages, and agents all run **as your user**
 - The prize is your **home directory** and your secrets
 - Containment can beat inspection
-- Encapsule: a whole container; workcell: borrow the host. Both **opt-in**
-- Both are **best effort**, but rather better than nothing
+  - Encapsule: a whole container
+  - Workcell: borrow the host /usr
+- Both are **opt-in** for sharing
+- Both **best effort** isolation, but better than none
 
 ## Future
 
@@ -708,13 +714,11 @@ Share **explicitly**.
 
 - encapsule: <https://github.com/juhp/encapsule> (Apache-2.0, in Fedora)
 - workcell: <https://github.com/juhp/workcell> (LGPLv2.1+, WIP)
-- Slides: <https://juhp.fedorapeople.org/talks/gnome-asia-2026-isolation/>
+- Slides: <https://petersen.fedorapeople.org/talks/gnome-asia-2026-isolation/>
 
 Jens Petersen (@juhp)
 
 Questions?
 
 ::: notes
-TODO: check the slides URL. The Makefile `upload` target uses
-fedorapeople.org:talks/gnome-asia-2026-isolation/.
 :::
